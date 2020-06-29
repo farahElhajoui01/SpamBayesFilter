@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="246.0" prefWidth="514.0" style="-fx-background-color: #161b1e;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="spambayesfilter.DialogResultatController">
+   <children>
+      <Button fx:id="button" layoutX="441.0" layoutY="190.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="48.0" stylesheets="@mainview.css" text="Ok">
+         <effect>
+            <DropShadow color="#110f0f" />
+         </effect>
+      </Button>
+      <ImageView fx:id="imageView" fitHeight="94.0" fitWidth="100.0" layoutX="14.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@filter2.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="label" layoutX="147.0" layoutY="53.0" prefHeight="91.0" prefWidth="327.0" text="Cet email est un SPAM !!" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
+   <effect>
+      <DropShadow height="65.48" radius="28.5325" width="50.65" />
+   </effect>
+</AnchorPane>
