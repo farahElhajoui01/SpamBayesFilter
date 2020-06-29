@@ -50,21 +50,6 @@ public class MailTextFacadeTest {
 //    }
 
     /**
-     * Test of Probaeeeee method, of class MailTextFacade.
-     */
-//    @Test
-//    public void testProbaeeeee() {
-//        System.out.println("Probaeeeee");
-//        String categorie = "";
-//        MailTextFacade instance = new MailTextFacade();
-//        double expResult = 0.0;
-//        double result = instance.Probaeeeee(categorie);
-//        assertEquals(expResult, result, 0.0);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-
-    /**
      * Test of Probamot method, of class MailTextFacade.
      */
 //    @Test
@@ -75,6 +60,22 @@ public class MailTextFacadeTest {
 //        MailTextFacade instance = new MailTextFacade();
 //        double expResult = 0.0;
 //        double result = instance.Probamot(word, categorie);
+//        assertEquals(expResult, result, 0.0);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+
+    /**
+     * Test of Prob method, of class MailTextFacade.
+     */
+//    @Test
+//    public void testProb() {
+//        System.out.println("Prob");
+//        String text = "";
+//        String categorie = "";
+//        MailTextFacade instance = new MailTextFacade();
+//        double expResult = 0.0;
+//        double result = instance.Prob(text, categorie);
 //        assertEquals(expResult, result, 0.0);
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
@@ -102,7 +103,7 @@ public class MailTextFacadeTest {
     @Test
     public void testClassifieurBayes() {
         System.out.println("ClassifieurBayes");
-        String text = "life of month";
+        String text = "test life";
         MailTextFacade instance = new MailTextFacade();
         String expResult = "";
         String result = instance.ClassifieurBayes(text);

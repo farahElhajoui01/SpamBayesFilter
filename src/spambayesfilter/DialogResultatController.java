@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -33,6 +34,7 @@ private Label  label;
 private Button button;
 @FXML
 private ImageView imageView;
+
     /**
      * Initializes the controller class.
      */
@@ -47,10 +49,8 @@ private ImageView imageView;
      
      if(resultat.equals("spam")){
               label.setText("Attention cet email est un SPAM !!!");
-   /* File f = new File("spambayesfilter/test.jpg");
-    Image img = new Image(f.toURI().toString());
-     imageView = new ImageView(img);
-*/
+   
+
        label.setTextFill(Color.web("#ce1313"));
 
      }
@@ -81,7 +81,10 @@ private ImageView imageView;
      
      
  });
-          
+        
+ 
+ 
+ 
     }    
 
     void initData(String décision) {

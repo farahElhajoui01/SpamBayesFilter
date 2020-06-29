@@ -51,7 +51,7 @@ public class MailTextFacade extends AbstractFacade<MailText>{
           
     }
     
-    public double  Probaeeeee(String categorie){
+ /*   public double  Probaeeeee(String categorie){
         
          Query query1 = getEntityManager().createQuery("select count(mt) from  MailText mt WHERE mt.categorie like '"+categorie+"'");
          Query query2 = getEntityManager().createQuery("select count(mt) from  MailText mt  ");
@@ -64,7 +64,7 @@ public class MailTextFacade extends AbstractFacade<MailText>{
     double proba=((double)countcat/(double)counttotal);
         System.out.println(proba);
     return proba;
-     }
+     }*/
     
     
      public double  Probamot(String word,String categorie){
@@ -90,38 +90,55 @@ public class MailTextFacade extends AbstractFacade<MailText>{
     }
     return 0;
      }
-    
+
     
       public double  PseudoProbaEmail(String text,String categorie){
-          double proba=0;
+           double proba=0;
+            double res = 0;
           
            text =text.toLowerCase();
            text=text.replaceAll("[-+.^:,]","");
            String mots[] = text.split(" ");
- 
+           double count =mots.length ;
+
         for (int i = 0; i < mots.length; i++) {
           
              Query query = getEntityManager().createQuery("select mt from  Mot mt where mt.mot like '"+mots[i]+"'");
 
          List<Mot> motts = query.getResultList();
-           if(!mots[i].equals("") || motts.size()!=0){
-       
-              proba =proba+Probamot(mots[i], categorie);
-              
-               System.out.println(mots[i] +"-->"+Probamot(mots[i], categorie));
-           
-           }
-                          System.out.println("proba text sachant "+ categorie+"= "+proba);
+          if (motts.size()==0) {
+                count--;
+            }
+            System.out.println(count+" count");
+            System.out.println(mots.length+" nbre de mots");
+            res = count / mots.length;
+            System.out.println(res+" reeeees");
+            if (res >= 0.5) {
 
-        }
+                if (!mots[i].equals("") || motts.size() != 0) {
+
+                    proba = proba + Probamot(mots[i], categorie);
+
+                    System.out.println(mots[i] + "-->" + Probamot(mots[i], categorie));
+                    System.out.println("proba= " + proba);
+
+                }
+            } else {
+                System.out.println("impossible de classifier <50%");
+               proba=-2;
+            }
         
+        
+      }
         return proba;
       }
      
       public String ClassifieurBayes(String text){
           
        String decision="";
-          
+       
+       if(PseudoProbaEmail(text, "spam")>=0 && PseudoProbaEmail(text, "ham")>=0){
+       
        if(PseudoProbaEmail(text, "spam")>PseudoProbaEmail(text, "ham"))
            decision="spam";
         
@@ -129,11 +146,15 @@ public class MailTextFacade extends AbstractFacade<MailText>{
                   decision= "ham";
           
           else 
-              decision= "pas de décision";
+              decision= "pas de décision";}
+      
+       else
+       decision= "ne peux pas décider cas <50%";
           System.out.println(decision+"-----------------");
           return decision;
+      
       }
-    
+      
     
     
 }
